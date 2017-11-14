@@ -1,0 +1,16 @@
+version: '3'
+services:
+  webdav:
+    image: morrisjobke/webdav
+    ports:
+      - "127.0.0.1:8888:80"
+    environment:
+      USERNAME: webdav
+      PASSWORD: webdav
+    volumes:
+     - ./data:/var/webdav
+  ncwms:
+    image: axiom/docker-ncwms
+    ports:
+      - "127.0.0.1:80:8080"
+      - "127.0.0.1:443:8443"
