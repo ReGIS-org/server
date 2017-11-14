@@ -1,0 +1,11 @@
+{
+    "dataset.new0.location": "http://webdav:vadbew@webdav/synthetic_land_mask.nc", 
+    "dataset.new0.queryable": "on", 
+    "dataset.new0.reader": "", 
+    "dataset.new0.title": "new_title", 
+    "dataset.new0.copyright": "", 
+    "dataset.new0.id": "new_id", 
+    "submit1": "Save+configuration", 
+    "dataset.new0.updateinterval": "-1", 
+    "dataset.new0.moreinfo": ""
+}
