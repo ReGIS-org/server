@@ -1,13 +1,14 @@
-version: '3'
+version: '2'
 services:
   webdav:
     build:
       context: webdav
     ports:
       - "127.0.0.1:8888:80"
-    volumes:
-     - ./data:/webdav
-#     - ./data:/var/webdav
+    container_name: webdav
+#  To mount a local directory with data, uncomment this:
+#    volumes:
+#     - /data:/webdav
   ncwms:
     image: axiom/docker-ncwms
     ports:
