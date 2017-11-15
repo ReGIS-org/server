@@ -10,7 +10,8 @@ services:
 #    volumes:
 #     - /data:/webdav
   ncwms:
-    image: axiom/docker-ncwms
+    build:
+      context: ncwms
     ports:
       - "127.0.0.1:80:8080"
       - "127.0.0.1:443:8443"

@@ -1,11 +1,23 @@
 {
     "dataset.new0.location": "http://webdav:vadbew@webdav/synthetic_land_mask.nc", 
+    "contact.name": "", 
     "dataset.new0.queryable": "on", 
+    "server.allowfeatureinfo": "on", 
+    "contact.org": "", 
     "dataset.new0.reader": "", 
+    "server.allowglobalcapabilities": "on", 
     "dataset.new0.title": "new_title", 
     "dataset.new0.copyright": "", 
+    "server.maximagewidth": "1024", 
+    "server.url": "", 
     "dataset.new0.id": "new_id", 
+    "server.maximageheight": "1024", 
+    "server.title": "ncWMS+Server", 
+    "contact.tel": "", 
     "submit1": "Save+configuration", 
+    "server.abstract": "", 
     "dataset.new0.updateinterval": "-1", 
-    "dataset.new0.moreinfo": ""
+    "contact.email": "", 
+    "dataset.new0.moreinfo": "", 
+    "server.keywords": ""
 }
