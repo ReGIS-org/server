@@ -1,0 +1,100 @@
+---
+swagger: "2.0"
+info:
+  description: "This is an API for the NetCDF WMS server"
+  version: "1.0.0"
+  title: "NetCDF WMS server"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "virtserver.swaggerhub.com"
+basePath: "/regis6/NetCDFServer/1.0.0"
+schemes:
+- "https"
+paths:
+  /data:
+    get:
+      tags:
+      - "default"
+      summary: "get all datasets"
+      description: "Get all datasets on the NetCDF WMS server\n"
+      operationId: "controllers.default_controller.data_get"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "query"
+        description: "pass an optional id of a layer"
+        required: false
+        type: "string"
+      - name: "skip"
+        in: "query"
+        description: "number of records to skip for pagination"
+        required: false
+        type: "integer"
+        minimum: 0
+        format: "int32"
+      - name: "limit"
+        in: "query"
+        description: "maximum number of records to return"
+        required: false
+        type: "integer"
+        maximum: 50.0
+        minimum: 0
+        format: "int32"
+      responses:
+        200:
+          description: "list of datasets"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Dataset"
+        400:
+          description: "bad input parameter"
+  /upload:
+    put:
+      tags:
+      - "default"
+      summary: "upload a NetCDF file"
+      description: "Upload a NetCDF file and get the WMS endpoint"
+      operationId: "controllers.default_controller.upload_data"
+      consumes:
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "upfile"
+        in: "formData"
+        description: "The NetCDF file to upload."
+        required: false
+        type: "file"
+        x-mimetype: "application/x-netcdf"
+      - name: "title"
+        in: "formData"
+        description: "title of the dataset"
+        required: false
+        type: "string"
+      responses:
+        201:
+          description: "data uploaded"
+          schema:
+            $ref: "#/definitions/Dataset"
+        400:
+          description: "invalid input, object invalid"
+definitions:
+  Dataset:
+    type: "object"
+    required:
+    - "endpoint"
+    - "id"
+    properties:
+      id:
+        type: "string"
+        example: "id0"
+      endpoint:
+        type: "string"
+        format: "url"
+        example: "/"
+      title:
+        type: "string"
+        example: "Example title"
