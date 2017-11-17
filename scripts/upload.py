@@ -1,6 +1,6 @@
 import pycurl
 import json
-from urllib import urlencode
+from urllib.parse import urlencode
 
 with open('./formdata.json') as f:
     post_data = json.load(f)
